@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h2>Employee Travel Costs</h2>
+  <h3 id="error-msg"></h3>
+  <p>
+    Last name (begins with): <br>
+    <input id="last-name-input" type="text" name="lName" id="lName">
+    <button id="btnDisplay">Display</button>
+  </p>
+  <p>
+    Total Travel Cost (less than or equal to): <br>
+    <select name="totalCost" id="totalCost">
+      <option value="" selected disabled>Select total cost</option>
+    </select>
+  </p>
+  <div id="results">
+    <table id="table">
+      <tr class="table-header">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Total Cost</th>
+      </tr>
+      <tr id="table-row" class="table-header">
+        <!-- <td> -->
+      </tr>
+    </table>
+  </div>
+</body>
+<script src="../js/q2.js"></script>
+</html>
