@@ -1,36 +1,36 @@
 const employees = [
   {
-      name: "Alan",
-      examScores: []
+    name: "Alan",
+    examScores: [],
   },
   {
-      name: "Betty",
-      examScores: []
+    name: "Betty",
+    examScores: [],
   },
   {
-      name: "Cindy",
-      examScores: []
+    name: "Cindy",
+    examScores: [],
   },
   {
-      name: "Dana",
-      examScores: []
+    name: "Dana",
+    examScores: [],
   },
   {
-      name: "Ellen",
-      examScores: []
+    name: "Ellen",
+    examScores: [],
   },
   {
-      name: "Frank",
-      examScores: []
+    name: "Frank",
+    examScores: [],
   },
   {
-      name: "Glenda",
-      examScores: []
+    name: "Glenda",
+    examScores: [],
   },
   {
-      name: "Hank",
-      examScores: []
-  }
+    name: "Hank",
+    examScores: [],
+  },
 ];
 // PART I - Populate the EXISTING array.  Do NOT create a new array.
 // Overview
@@ -53,7 +53,7 @@ const employees = [
 //    },
 
 const populateScores = () => {
-  employees.forEach(employee => {
+  employees.forEach((employee) => {
     for (let i = 0; i < 5; i++) {
       let score = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
       if (score < 90) {
@@ -63,8 +63,8 @@ const populateScores = () => {
         break;
       }
     }
-  })
-}
+  });
+};
 populateScores();
 
 // You could use the following to test the updated array:
@@ -92,14 +92,16 @@ populateScores();
 //    },
 
 const findLowest = () => {
-  employees.forEach(employee => {
-    let lowest = employee.examScores.reduce((min, curr) => (curr < min ? curr : min))
+  employees.forEach((employee) => {
+    let lowest = employee.examScores.reduce((min, curr) =>
+      curr < min ? curr : min
+    );
     let index = employee.examScores.indexOf(lowest);
     if (index > -1 && employee.examScores.length > 1) {
       employee.examScores.splice(index, 1);
     }
-  })
-}
+  });
+};
 findLowest();
 
 // You could use the following to test the updated array:
@@ -135,21 +137,26 @@ findLowest();
 //    {
 //      name: "Alan",
 //      examScores: [ 82, 89, 71, 98 ],
-//      numberOfTests: 4, 
+//      numberOfTests: 4,
 //      passingScore: 98, **filter**
 //      avgScore: 85, **map**
 //      minScore: 71 reduce
 //    },
-const employeeDetails = employees.map(employee => ({
+const employeeDetails = employees.map((employee) => ({
   name: employee.name,
   examScores: employee.examScores,
   numberOfTests: employee.examScores.length,
-  passingScore: employee.examScores.filter(score => score >= 90).length > 0 
-    ? employee.examScores.filter(score => score >= 90) 
-    : 'Did not pass.',
-  avgScore: employee.examScores.reduce((acc, curr) => acc + curr, 0) / employee.examScores.length,
-  minScore: employee.examScores.reduce((min, curr) => (curr < min ? curr : min))
-}))
+  passingScore:
+    employee.examScores.filter((score) => score >= 90).length > 0
+      ? employee.examScores.filter((score) => score >= 90)
+      : "Did not pass.",
+  avgScore:
+    employee.examScores.reduce((acc, curr) => acc + curr, 0) /
+    employee.examScores.length,
+  minScore: employee.examScores.reduce((min, curr) =>
+    curr < min ? curr : min
+  ),
+}));
 
 // PART IV - Output the results / Custom Format
 //  Output the summarized data to the console.  You must use the following format:
@@ -165,10 +172,12 @@ const employeeDetails = employees.map(employee => ({
 //
 // Note:  Include the ********************************************************* after each employee
 
-for(let i = 0; i < employeeDetails.length; i++) {
-  console.log('Name:', employeeDetails[i].name);
-  console.log('Exam Scores:', employeeDetails[i].examScores);
-  console.log('Num. of tests:', employeeDetails[i].numberOfTests);
-  console.log(`Passing Score: ${employeeDetails[i].passingScore} Avg Score: ${employeeDetails[i].avgScore} Minimum Score: ${employeeDetails[i].minScore}`);
-  console.log('*********************************************************');
+for (let i = 0; i < employeeDetails.length; i++) {
+  console.log("Name:", employeeDetails[i].name);
+  console.log("Exam Scores:", employeeDetails[i].examScores);
+  console.log("Num. of tests:", employeeDetails[i].numberOfTests);
+  console.log(
+    `Passing Score: ${employeeDetails[i].passingScore} Avg Score: ${employeeDetails[i].avgScore} Minimum Score: ${employeeDetails[i].minScore}`
+  );
+  console.log("*********************************************************");
 }
